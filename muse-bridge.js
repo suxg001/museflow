@@ -100,9 +100,9 @@
   function isRefusalContext(context){
     const text=String(context||'');
     const explicit=/(?:i|we)\s+(?:am\s+)?sorry[\s\S]{0,180}(?:cannot|can't|unable|won't)|(?:cannot|can't|couldn't|unable to|not able to)\s+(?:help|assist|create|generate|make|produce|fulfill|complete|comply)|(?:request|prompt).{0,100}(?:violat|disallowed|restricted|not allowed)|(?:policy|safety).{0,100}(?:prevent|restrict|unable)|generation (?:was )?(?:declined|blocked)|content (?:is )?not allowed|i can't comply/i;
-    const inability=/(?:không tạo được|không thể tạo|chưa thể tạo|không thực hiện được|vẫn không tạo được|không làm được)/i;
-    const sceneContext=/(?:cảnh|bản|đoạn|video|ảnh|nội dung|yêu cầu|này)/i;
-    const offerAlternative=/(?:bản|phiên bản|phương án)\s+tương\s+đương|tương\s+đương.{0,100}(?:bám|theo|kịch bản)|muốn.{0,100}(?:tạo mới|thử lại|làm lại)|(?:would you like|do you want|want me to).{0,100}(?:create|make|generate|try)|equivalent alternative/i;
+    const inability=/(?:无法生成|无法创建|不能生成|不能创建|无法制作|生成不了|创建不了|做不了|我无法(?:生成|创建|制作)|không tạo được|không thể tạo|chưa thể tạo|không thực hiện được|vẫn không tạo được|không làm được)/i;
+    const sceneContext=/(?:场景|这个|这段|视频|图片|内容|要求|cảnh|bản|đoạn|video|ảnh|nội dung|yêu cầu|này)/i;
+    const offerAlternative=/做一个|做个|换一个|类似的|等效|替代方案|要不要.{0,60}(?:重新|再试|换个)|让我.{0,60}(?:重新|再试)|(?:bản|phiên bản|phương án)\s+tương\s+đương|tương\s+đương.{0,100}(?:bám|theo|kịch bản)|muốn.{0,100}(?:tạo mới|thử lại|làm lại)|(?:would you like|do you want|want me to).{0,100}(?:create|make|generate|try)|equivalent alternative/i;
     return explicit.test(text)||inability.test(text)&&(sceneContext.test(text)||offerAlternative.test(text));
   }
 
@@ -242,7 +242,7 @@
     let input=findInput();
     if(!input){
       const roots=[composerRoot,composer.closest('form'),composer.parentElement].filter(Boolean);
-      const uploadButton=roots.flatMap(root=>[...root.querySelectorAll('button,[role="button"],label')]).filter(visible).find(el=>/attach|upload|image|photo|file|đính kèm|tải lên/i.test(`${el.getAttribute('aria-label')||''} ${el.getAttribute('title')||''} ${el.innerText||''}`));
+      const uploadButton=roots.flatMap(root=>[...root.querySelectorAll('button,[role="button"],label')]).filter(visible).find(el=>/attach|upload|image|photo|file|附件|上传|添加图片|选择文件|đính kèm|tải lên/i.test(`${el.getAttribute('aria-label')||''} ${el.getAttribute('title')||''} ${el.innerText||''}`));
       if(uploadButton){uploadButton.click();await delay(250,signal);input=findInput();}
     }
     if(!input)throw new Error('Muse image upload control was not found near the chat composer; the prompt was not submitted.');

@@ -127,7 +127,7 @@
 
   <div id="donationModal" class="modal-backdrop hidden">
     <section class="modal donation-modal" role="dialog" aria-modal="true" aria-labelledby="donationModalTitle">
-      <header class="donation-header"><div><h2 id="donationModalTitle">Buy me a coffee</h2><p>Ủng hộ MuseFlow qua VietQR</p></div><button id="closeDonationBtn" type="button" aria-label="Close">×</button></header>
+      <header class="donation-header"><div><h2 id="donationModalTitle">Buy me a coffee</h2><p>通过 VietQR 支持 MuseFlow</p></div><button id="closeDonationBtn" type="button" aria-label="Close">×</button></header>
       <img id="donationQrImage" class="donation-qr" src="https://img.vietqr.io/image/VCB-0331000500621-compact2.png?addInfo=BUY%20ME%20A%20COFFEE&amp;accountName=NGUYEN%20TAN%20THANH" alt="VietQR for Nguyen Tan Thanh at Vietcombank" />
       <div id="donationQrFallback" class="donation-qr-fallback hidden">QR preview could not be loaded. Open the VietQR image directly below.</div>
       <div class="donation-details"><span>Vietcombank</span><strong>0331000500621</strong><span>NGUYEN TAN THANH</span></div>
@@ -142,10 +142,10 @@
       <p>Paste a scene script using the Grumbo &amp; Snowy form. MuseFlow reads each scene’s opening/ending frames, timed actions, image/video prompts, audio, shared locks and negative prompt, then connects the scene nodes and orders videos on the Timeline.</p>
       <p class="script-template-hint">Download the strict template to fill in yourself or give to an AI. Keep the headings and field order unchanged.</p>
       <label for="scriptInput">Script</label>
-      <textarea id="scriptInput" placeholder="CẢNH 1 (0:00 đến 0:10): Scene title&#10;Khung đầu: ...&#10;Khung cuối: ...&#10;Diễn biến: 1. 0-2s: ...&#10;Prompt ảnh khung đầu: ...&#10;Prompt video: ...&#10;Audio: ..."></textarea>
+      <textarea id="scriptInput" placeholder="Scene 1 (0:00 to 0:10): Scene title&#10;Opening frame: ...&#10;Closing frame: ...&#10;Action beats: 1. 0-2s: ...&#10;Opening image prompt: ...&#10;Video prompt: ...&#10;Audio: ..."></textarea>
       <div id="scriptImportStatus" role="status"></div>
       <div class="modal-actions">
-        <a id="downloadScriptTemplate" class="script-template-download" href="templates/museflow-scene-script-template-vi.txt" download="MuseFlow_Scene_Script_Template_VI.txt">⇩ Download strict template</a>
+        <a id="downloadScriptTemplate" class="script-template-download" href="templates/museflow-scene-script-template-en.txt" download="MuseFlow_Scene_Script_Template_EN.txt">⇩ Download strict template</a>
         <button id="cancelScriptImport" type="button">Cancel</button>
         <button id="buildScriptNodes" type="button" class="primary">Create scene nodes</button>
       </div>
@@ -156,17 +156,17 @@
     <section class="modal run-order-modal" role="dialog" aria-modal="true" aria-labelledby="runOrderTitle">
       <header class="run-order-header">
         <div class="run-order-heading-icon" aria-hidden="true">⇅</div>
-        <div class="run-order-heading-copy"><h2 id="runOrderTitle">Xác nhận thứ tự chạy</h2><p id="runOrderSubtitle">Các node tạo sẽ chạy theo thứ tự bên dưới.</p></div>
-        <button id="closeRunOrderBtn" class="run-order-close" type="button" aria-label="Đóng">×</button>
+        <div class="run-order-heading-copy"><h2 id="runOrderTitle">确认运行顺序</h2><p id="runOrderSubtitle">生成节点将按以下顺序运行。</p></div>
+        <button id="closeRunOrderBtn" class="run-order-close" type="button" aria-label="关闭">×</button>
       </header>
-      <div id="runOrderList" class="run-order-list" aria-label="Thứ tự node tạo"></div>
+      <div id="runOrderList" class="run-order-list" aria-label="生成节点顺序"></div>
       <div id="runOrderWarning" class="run-order-warning hidden" role="alert"></div>
       <footer class="run-order-footer">
-        <p><span aria-hidden="true">ⓘ</span> Tick node muốn chạy; bỏ tick để bỏ qua. Node đang được chọn áp dụng khi chạy workflow.</p>
+        <p><span aria-hidden="true">ⓘ</span> 勾选要运行的节点，取消勾选即跳过。运行工作流时以当前勾选为准。</p>
         <div class="run-order-actions">
-          <button id="cancelRunOrderBtn" type="button">Hủy</button>
-          <button id="resetRunOrderBtn" type="button">Đặt lại theo thứ tự tạo</button>
-          <button id="confirmRunOrderBtn" class="primary" type="button">▶ Chạy node</button>
+          <button id="cancelRunOrderBtn" type="button">取消</button>
+          <button id="resetRunOrderBtn" type="button">按创建顺序重置</button>
+          <button id="confirmRunOrderBtn" class="primary" type="button">▶ 运行节点</button>
         </div>
       </footer>
     </section>

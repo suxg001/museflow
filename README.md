@@ -2,7 +2,7 @@
 
 **26Flow** is a visual workflow extension for creating images and videos with your signed-in [Muse.ai](https://muse.ai) session. Build workflows by connecting nodes on a canvas, generate media, and arrange video clips on a timeline.
 
-[Tiếng Việt](README-vi.md)
+[中文](README-zh.md) · [详细中文使用指南](使用指南.md)
 
 **Quick install:** [Download MuseFlow-extension.zip](https://github.com/bynne2602/museflow/raw/refs/heads/main/downloads/MuseFlow-extension.zip) · No npm install or build step required.
 
@@ -39,7 +39,7 @@
 - **Image workflows:** provide image inputs and references, generate images, resize outputs, and preview connected media.
 - **Video workflows:** generate video clips, optionally use the preceding timeline clip's end frame as a continuity reference, and preview connected video.
 - **Timeline:** add and reorder clips, set clip durations, preview the sequence, export WebM, or assemble the full timeline as MP4 (H.264) with the bundled local FFmpeg engine. MP4 processing stays on your device.
-- **Script to nodes:** turn a scene-based script into connected image/video nodes and an ordered timeline. Download the strict fill-in/AI template from the script importer; it preserves the required headings, field names, and scene layout. The parser accepts both `CẢNH 1 (...)` and `Scene 1 (...)` headings and expands shared prompt locks.
+- **Script to nodes:** turn a scene-based script into connected image/video nodes and an ordered timeline. Download the strict fill-in/AI template from the script importer; it preserves the required headings, field names, and scene layout. The parser accepts `Scene 1 (...)` headings (older Vietnamese `CẢNH 1 (...)` and Chinese `场景 1 (...)` scripts still import) and expands shared prompt locks. Write the script itself in English: Muse follows English video and audio directions most reliably.
 - **Selective workflow runs:** review generation order, drag to reorder, and check only the image/video nodes you want to run. MuseFlow warns when a selected node needs a source output that is not available.
 - **Workflow files:** use **Save workflow** to download a reusable JSON file and **Import workflow** to restore it later. Generated and input media are embedded when available; inaccessible remote media remains linked to its original URL.
 - **Local workflow saving:** **Save** and autosave keep the current workflow in the extension's browser storage.
@@ -90,7 +90,7 @@ For a clearer view while you work, keep the Muse.ai chat and the MuseFlow canvas
 4. Choose the output settings and click **Run Image** or **Run Video** on that node, or run the workflow from the toolbar.
 5. Connect generated media to a **Preview** node. For video, add clips to the **Timeline**, arrange their order, and preview or export the sequence.
 
-To build a workflow from a script, choose **Script → Nodes**, download the strict template, then fill it in yourself or give it to an AI with your story brief. Keep the headings and field order unchanged. MuseFlow recognizes both `CẢNH 1 (0:00–0:05): Title` and `Scene 1 (0:00–0:05): Title`, opening and ending frames, timed action beats, opening image prompts, video prompts, and audio directions. Shared prompt locks are expanded into the scene prompts. Each scene becomes connected image/video nodes; video clips are ordered on the Timeline and continuity is enabled for following scenes.
+To build a workflow from a script, choose **Script → Nodes**, download the strict template, then fill it in yourself or give it to an AI with your story brief. Keep the headings and field order unchanged. MuseFlow recognizes `Scene 1 (0:00–0:05): Title` (plus legacy `CẢNH 1 (...)` / `场景 1 (...)` headings), opening and ending frames, timed action beats, opening image prompts, video prompts, and audio directions. Keep prompts and the Audio field in English. Shared prompt locks are expanded into the scene prompts. Each scene becomes connected image/video nodes; video clips are ordered on the Timeline and continuity is enabled for following scenes.
 
 ## Data and permissions
 
@@ -100,9 +100,9 @@ Workflows and locally stored media are kept in browser extension storage on your
 
 - **Muse session is unavailable:** sign in to Muse.ai, keep its chat page open, then reload 26Flow and the Muse.ai tab.
 - **Generation does not start or media is missing:** check the Muse.ai page and session, then retry. Muse.ai may change its interface or generation behavior, which can require an extension update.
-- **Muse declines a scene:** 26Flow detects refusal messages, including Vietnamese replies that say a scene cannot be created or offer to make an equivalent, and retries that scene once with a close, safer alternative prompt. It does not wait for confirmation. The retry keeps the scene's narrative role and settings; Muse.ai still determines whether the result can be generated.
+- **Muse declines a scene:** 26Flow detects refusal messages, including Chinese, Vietnamese and English replies that say a scene cannot be created or offer to make an equivalent, and retries that scene once with a close, safer alternative prompt. It does not wait for confirmation. The retry keeps the scene's narrative role and settings; Muse.ai still determines whether the result can be generated.
 - **Timeline export fails:** reload the extension and try again. MP4 uses the bundled FFmpeg engine; WebM uses browser `MediaRecorder` and canvas capture.
-- **Output differs from requested settings:** Muse.ai controls the generated media; the requested aspect ratio, audio, and video options may not always be honored by the service.
+- **Output differs from requested settings / no sound:** Muse.ai controls the generated media; the requested aspect ratio, audio, and video options may not always be honored by the service. MuseFlow asks every video node for audible sound, but if Muse returns a silent clip the extension cannot invent audio for it — check the clip in the Muse.ai tab first, then see the Chinese guide (使用指南.md) for diagnosis and the FFmpeg workaround.
 
 ## Star History
 

@@ -1,0 +1,105 @@
+MUSEFLOW — SCENE SCRIPT TEMPLATE FOR NODE GENERATION
+Template version: 1.0
+
+INSTRUCTIONS FOR THE AI — READ CAREFULLY BEFORE WRITING
+Write the whole script in English. English prompts and audio directions give
+the most reliable image, video and sound results from Muse. Do not translate
+the field labels below into another language. Fill in the form exactly as
+specified. The form is structured input data for the software, not a
+presentation suggestion.
+
+MANDATORY RULES:
+1. Output only the filled-in form. Do not add an introduction, conclusion,
+   explanation, table, Markdown fence or any note outside the form.
+2. Keep every heading, field label, colon, lock-block order and field order
+   inside each scene exactly as given. Do not translate, rename, abbreviate,
+   merge, delete or move them.
+3. Only replace the parts inside <...>. Do not change field names or scene
+   heading lines.
+4. Each scene must have exactly one heading line in this form:
+   Scene N (HH:MM–HH:MM): Scene title. Number scenes continuously from 1;
+   time ranges must be continuous, with no overlaps and no gaps. The default
+   scene length is 5 seconds. If the user asks for a different length, split
+   scenes into continuous ranges of that length.
+5. Repeat the whole SCENE block until the total duration and scene count
+   requested are reached. Do not leave a leftover sample scene and do not
+   change the block structure.
+6. Each scene must have a specific, producible Video prompt: name the subject,
+   setting, camera framing, timed actions, movement and end state. Do not
+   write "as above", "continue the previous scene" or ask the AI to guess.
+7. Keep characters, outfits, props and background layout consistent using the
+   shared lock blocks. In each scene prompt, call characters and settings by
+   the exact names declared in the locks. Only describe what changes in
+   that scene.
+8. The opening and closing frames must describe clear, recognizable still
+   images. The action beats must fit the scene duration and end exactly on
+   the closing frame. Each scene must continue sensibly from the previous one.
+9. Voice contains only the narration expected to be read during editing.
+   The Video prompt must not ask for on-screen text, subtitles, speech or
+   lip movement unless the user explicitly asks for it.
+10. Opening image prompt is optional: if no opening image is needed for a
+    scene, leave it blank after the colon; do not delete the line.
+11. Audio describes fitting background music, ambient sound and effects.
+    Never leave it blank. Write it in English and be specific, for example:
+    "Upbeat background music, birdsong, footsteps in sync with the action."
+    If no music is wanted, write "No music; only natural ambient sound."
+    MuseFlow asks for audible sound on every video, but Muse decides the
+    final result — a precise Audio line is what makes sound most likely.
+12. Negative prompt must list the errors to avoid and must not contradict
+    the scene content.
+13. Do not invent specialist facts. If the script contains health, science,
+    history or numerical claims, keep the user's meaning and mark
+    [NEEDS VERIFICATION] in the Voice field if you are unsure.
+14. Before answering, self-check: scene numbers are continuous; time ranges
+    have no gaps or overlaps; every scene has a Video prompt, Audio and
+    Negative prompt; labels and field order are unchanged; every lock
+    reference has content.
+
+USER REQUEST:
+<Paste the user's request or rough script to turn into scenes here. State the
+topic, audience, style, total duration, seconds per scene, characters,
+settings and anything that must be kept.>
+
+=== START OF FORM — KEEP THE STRUCTURE FROM HERE ===
+
+[STYLE LOCK]:
+<Fixed visual style: materials, lighting, colours, aspect ratio, quality
+and rules that never change.>
+
+[CHAR LOCK]:
+<Full description of each character: identifier name, appearance, body
+proportions, colours, outfit, identifying features. One character per line.>
+
+[SET LOCK]:
+<Full description of each setting: identifier name, layout, left/right/
+centre positions, fixed props, camera direction and things that must never
+change. One setting per line.>
+
+[VIDEO SUFFIX]:
+<Visual/motion rules to append to the end of every video prompt, for
+example animation style, smooth motion, no text, no subtitles.>
+
+[NEGATIVE]:
+<List of errors to avoid across the whole project.>
+
+Scene 1 (0:00–0:05): <Scene title>
+Setting: <Setting name and the state it must be in for this scene.>
+Voice (English narration): <Short narration line for this scene.>
+Opening frame: <Exact description of the image at the start of the scene.>
+Closing frame: <Exact description of the image at the end of the scene and the point that connects to the next scene.>
+Action beats: <Actions by timecode, for example 0–2s and 2–5s. One main action per beat.>
+Opening image prompt:
+Video prompt: <Complete, self-contained prompt; may use the STYLE LOCK, CHAR LOCK, SET LOCK and VIDEO SUFFIX names declared above.>
+Audio: <Background music, ambient sound and effects synced to the action.>
+Negative prompt: <Errors specific to this scene; if none, write "No additions.">
+
+=== END OF FORM — TO ADD A SCENE, COPY THE WHOLE SCENE BLOCK ABOVE ===
+
+USAGE NOTES:
+- Fill in USER REQUEST, then send the whole file to an AI and ask it to
+  return only the completed form.
+- Or fill in the form yourself. When done, paste everything from the lock
+  blocks to the last scene into MuseFlow Script → Nodes.
+- Do not delete a field label even if an optional field is left blank.
+  MuseFlow recognises scenes from lines like "Scene 1 (time): Title" and
+  reads content by exact field label.
